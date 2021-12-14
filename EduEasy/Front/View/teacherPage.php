@@ -141,7 +141,8 @@ else if($_SESSION['loggedIn'] != true)
                                         </div>
                                     </div>
                                     <div class="button ">
-                                        <a href="#" class="main-btn" style="margin-top:1rem;margin-right:2rem;">New
+                                        <a href="NewCourse.php" class="main-btn"
+                                            style="margin-top:1rem;margin-right:2rem;">New
                                             Course</a>
                                     </div>
                                     <li class="nav-item">
@@ -191,17 +192,18 @@ else if($_SESSION['loggedIn'] != true)
                     <div class="singel-course mt-30">
                         <div class="thum">
                             <div class="image">
-                                <img src="images/course/cu-1.jpg" alt="Course">
+                                <img src="images/course/<?php echo $Course['image'] ?>" alt="Course" style="height:10rem;">
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#">
+                            <a href="singleCoursePage.php?id=<?php echo $Course['id'] ?>">
                                 <h4><?php echo $Course['name']; ?>
                                 </h4>
                             </a>
                             <div class="course-teacher">
                                 <div class="thum">
-                                    <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
+                                    <a><img src="images/course/teacher/<?php echo $Course['teacher_image'] ?>"
+                                            alt="teacher"></a>
                                 </div>
                                 <div class="name">
                                     <a>
@@ -256,15 +258,9 @@ else if($_SESSION['loggedIn'] != true)
                             </div>
                             <ul>
                                 <li><a href="index.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Courses</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                <li><a href="PaidCourses.php"><i class="fa fa-angle-right"></i>Premuim Courses</a></li>
+                                <li><a href="FreeCourses.php"><i class="fa fa-angle-right"></i>Free Courses</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -274,11 +270,8 @@ else if($_SESSION['loggedIn'] != true)
                                 <h6>Support</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -293,7 +286,7 @@ else if($_SESSION['loggedIn'] != true)
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>1140 Rue Amir Abedelkader, Tunis</p>
                                     </div>
                                 </li>
                                 <li>
@@ -309,7 +302,7 @@ else if($_SESSION['loggedIn'] != true)
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>EduEasyinfo@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>

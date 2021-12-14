@@ -141,7 +141,7 @@ else if($_SESSION['loggedIn'] != true)
                                                 style="border: solid 1px black; padding: 2rem; border-radius: 50%; margin-left: 1em; background-color: whitesmoke;" /></a>
                                         <ul class="sub-menu">
                                             <li><a href="studentMyProfile.php">My Profile</a></li>
-                                            <li><a href="#">My Courses</a></li>
+                                            <li><a href="StudentRegisteredCourses.php">My Courses</a></li>
                                             <li><a href="../Controller/logoutControl.php">Sign out</a></li>
                                         </ul>
                                     </li>
@@ -190,13 +190,8 @@ else if($_SESSION['loggedIn'] != true)
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the best for your education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis
-                                faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed
-                                fringilla mauri amet nibh.</p>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose The best For Your Education.</h1>
                             <ul>
-                                <!-- <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -210,14 +205,10 @@ else if($_SESSION['loggedIn'] != true)
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the best for your education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis
-                                faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed
-                                fringilla mauri amet nibh.</p>
-                            <ul>
-                                <!-- <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li> -->
-                            </ul>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">First Tunisian Dedicated E-Learning
+                                Plateform.</h1>
+                            <p data-animation="fadeInUp" data-delay="1.3s"></p>
+                            <ul></ul>
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -230,14 +221,10 @@ else if($_SESSION['loggedIn'] != true)
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the best for your education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis
-                                faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt Sed
-                                fringilla mauri amet nibh.</p>
-                            <ul>
-                                <!-- <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li> -->
-                            </ul>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">A large Variety Of Verified Courses
+                                Available.</h1>
+                            <p data-animation="fadeInUp" data-delay="1.3s"></p>
+                            <ul></ul>
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -246,141 +233,7 @@ else if($_SESSION['loggedIn'] != true)
     </section>
 
     <!--====== SLIDER PART ENDS ======-->
-    <br>
-    <br>
-    <!--====== VIDEO FEATURE PART START ======-->
 
-    <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url(images/bg-1.jpg)">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-last order-lg-first">
-                    <div class="video text-lg-left text-center pt-50">
-                        <a class="Video-popup" href="https://www.youtube.com/watch?v=bRRtdzJH1oE"><i
-                                class="fa fa-play"></i></a>
-                    </div> <!-- row -->
-                </div>
-                <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
-                    <div class="feature pt-50">
-                        <div class="feature-title">
-                            <h3>Our Facilities</h3>
-                        </div>
-                        <ul>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-1.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Global Certificate</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem
-                                            quibibendum sem nibhutis.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-2.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Alumni Support</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem
-                                            quibibendum sem nibhutis.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-3.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Books & Library</h4>
-                                        <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem
-                                            quibibendum sem nibhutis.</p>
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                        </ul>
-                    </div> <!-- feature -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="feature-bg"></div> <!-- feature bg -->
-    </section>
-
-    <!--====== VIDEO FEATURE PART ENDS ======-->
-    <br>
-    <br>
-    <!--====== TEASTIMONIAL PART START ======-->
-
-    <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8"
-        style="background-image: url(images/bg-2.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-40">
-                        <h5>Testimonial</h5>
-                        <h2>What they say</h2>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row testimonial-slied mt-40">
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="images/testimonial/t-1.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis
-                                sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="images/testimonial/t-2.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis
-                                sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="images/testimonial/t-3.jpg" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis
-                                sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-            </div> <!-- testimonial slied -->
-        </div> <!-- container -->
-    </section>
-
-    <!--====== TEASTIMONIAL PART ENDS ======-->
-    <br>
-    <br>
     <!--====== PATNAR LOGO PART START ======-->
 
     <div id="patnar-logo" class="pt-40 pb-80 gray-bg">
@@ -448,15 +301,9 @@ else if($_SESSION['loggedIn'] != true)
                             </div>
                             <ul>
                                 <li><a href="index.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Courses</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                <li><a href="PaidCourses.php"><i class="fa fa-angle-right"></i>Premuim Courses</a></li>
+                                <li><a href="FreeCourses.php"><i class="fa fa-angle-right"></i>Free Courses</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -466,11 +313,8 @@ else if($_SESSION['loggedIn'] != true)
                                 <h6>Support</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -485,7 +329,7 @@ else if($_SESSION['loggedIn'] != true)
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>1140 Rue Amir Abedelkader, Tunis</p>
                                     </div>
                                 </li>
                                 <li>
@@ -501,7 +345,7 @@ else if($_SESSION['loggedIn'] != true)
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>EduEasyinfo@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -530,6 +374,7 @@ else if($_SESSION['loggedIn'] != true)
     </footer>
 
     <!--====== FOOTER PART ENDS ======-->
+
 
     <!--====== BACK TO TP PART START ======-->
 

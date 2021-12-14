@@ -93,8 +93,8 @@ else if($_SESSION['loggedIn'] != true)
                                     <li class="nav-item">
                                         <a href="#" style="font-size: 1.5rem;">Courses</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">Premium Courses</a></li>
-                                            <li><a href="#">Free Courses</a></li>
+                                            <li><a href="ShowPaidCourses.php">Premium Courses</a></li>
+                                            <li><a href="ShowFreeCourses.php">Free Courses</a></li>
                                         </ul>
                                     </li>
 
@@ -127,8 +127,8 @@ else if($_SESSION['loggedIn'] != true)
                                         <a href="#"><img src="../View/images/feature-user.png" alt="userImage"
                                                 style="border: solid 1px black; padding: 2rem; border-radius: 50%; margin-left: 1em; background-color: whitesmoke;" /></a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">My Profile</a></li>
-                                            <li><a href="#">My Courses</a></li>
+                                            <li><a href="studentMyProfile.php">My Profile</a></li>
+                                            <li><a href="StudentRegisteredCourses.php">My Courses</a></li>
                                             <li><a href="../Controller/logoutControl.php">Sign out</a></li>
                                         </ul>
                                     </li>
@@ -285,7 +285,8 @@ else if($_SESSION['loggedIn'] != true)
             </form>
             <br>
             <div style="margin-left: 20vw;">
-                <a href="../Controller/DeleteUser.php"><input type="button" class="main-btn" name="delateAccount" value="Delete My Account"></a>
+                <a href="../Controller/DeleteUser.php"><input type="button" class="main-btn" name="delateAccount"
+                        value="Delete My Account"></a>
             </div>
             <br>
             <br>
@@ -315,15 +316,11 @@ else if($_SESSION['loggedIn'] != true)
                                     </div>
                                     <ul>
                                         <li><a href="index.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                        <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>Courses</a></li>
                                         <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                        <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                        <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                        <li><a href="PaidCourses.php"><i class="fa fa-angle-right"></i>Premuim
+                                                Courses</a></li>
+                                        <li><a href="FreeCourses.php"><i class="fa fa-angle-right"></i>Free Courses</a>
+                                        </li>
                                     </ul>
                                 </div> <!-- footer link -->
                             </div>
@@ -333,11 +330,8 @@ else if($_SESSION['loggedIn'] != true)
                                         <h6>Support</h6>
                                     </div>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                                         <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                                         <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
                                     </ul>
                                 </div> <!-- support -->
                             </div>
@@ -352,7 +346,7 @@ else if($_SESSION['loggedIn'] != true)
                                                 <i class="fa fa-home"></i>
                                             </div>
                                             <div class="cont">
-                                                <p>143 castle road 517 district, kiyev port south Canada</p>
+                                                <p>1140 Rue Amir Abedelkader, Tunis</p>
                                             </div>
                                         </li>
                                         <li>
@@ -368,7 +362,7 @@ else if($_SESSION['loggedIn'] != true)
                                                 <i class="fa fa-envelope-o"></i>
                                             </div>
                                             <div class="cont">
-                                                <p>info@yourmail.com</p>
+                                                <p>EduEasyinfo@gmail.com</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -377,22 +371,23 @@ else if($_SESSION['loggedIn'] != true)
                         </div> <!-- row -->
                     </div> <!-- container -->
                 </div> <!-- footer top -->
-                <!-- 
+
                 <div class="footer-copyright pt-10 pb-25">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="copyright text-md-left text-center pt-15">
-                                  <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p> 
+                                    <!-- <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p> -->
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="copyright text-md-right text-center pt-15">
+
                                 </div>
                             </div>
-                        </div>  row 
-                    </div>  container 
-                </div> footer copyright -->
+                        </div> <!-- row -->
+                    </div> <!-- container -->
+                </div> <!-- footer copyright -->
             </footer>
 
             <!--====== FOOTER PART ENDS ======-->

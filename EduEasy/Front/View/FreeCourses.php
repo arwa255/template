@@ -7,7 +7,7 @@ function getFreeCourses(){
 
     try {
         $query = $db->query(
-        "SELECT * FROM courses where free=1"
+        "SELECT courses.id, courses.name, courses.category, courses.teacher, courses.teacher_image, courses.image, courses.numberOfStudentsRegistered, courses.numberOfLikes,teacher.userName FROM courses,teacher WHERE courses.free=1 and teacher.userId=courses.teacher"
         );
         return $query;
 
@@ -31,6 +31,8 @@ function countNbFreeCourses(){
     }
     return $nbCourses;
 }
+
+
 
 $FreecoursesList = getFreeCourses();
 $nbCourses = countNbFreeCourses();
@@ -119,13 +121,13 @@ $nbCourses = countNbFreeCourses();
                             <ul>
                                 <li><img src="images/all-icon/map.png" alt="icon"><span>1140 Rue Amir Abedelkader,
                                         Tunis</span></li>
-                                <li><img src="images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
+                                <li><img src="images/all-icon/email.png" alt="icon"><span>EduEasyInfo@gmail.com</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header-opening-time text-lg-right text-center">
-                            <!-- <p>Opening Hours : Monday to Saturay - 8 Am to 5 Pm</p> -->
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -142,7 +144,7 @@ $nbCourses = countNbFreeCourses();
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-8 col-md-8">
+                    <div class="col-lg-8 col-md-8">
                         <div class="support-button float-right d-none d-md-block">
                             <div class="support float-left">
                                 <div class="icon">
@@ -158,7 +160,7 @@ $nbCourses = countNbFreeCourses();
                                 <a href="registration.html" class="main-btn">Register</a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- header logo support -->
@@ -180,17 +182,12 @@ $nbCourses = countNbFreeCourses();
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="active" href="index.html">Home</a>
-                                        <!-- <ul class="sub-menu">
-                                            <li><a class="active" href="index-2.html">Home 01</a></li>
-                                            <li><a href="index-3.html">Home 02</a></li>
-                                            <li><a href="index-4.html">Home 03</a></li>
-                                        </ul> -->
                                     </li>
                                     <li class="nav-item">
                                         <a href="#">Courses</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">Premium Courses</a></li>
-                                            <li><a href="#">Free Courses</a></li>
+                                            <li><a href="PaidCourses.php">Premium Courses</a></li>
+                                            <li><a href="FreeCourses.php">Free Courses</a></li>
                                         </ul>
                                     </li>
 
@@ -204,18 +201,6 @@ $nbCourses = countNbFreeCourses();
 
                                     <li class="nav-item">
                                         <a href="#">News</a>
-                                        <!-- <ul class="sub-menu">
-                                            <li><a href="News.html">News</a></li>
-                                           
-                                        </ul> -->
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="contact.html">Contact us</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="about.html">About us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -236,6 +221,7 @@ $nbCourses = countNbFreeCourses();
     </header>
 
     <!--====== HEADER PART ENDS ======-->
+
 
     <!--====== SEARCH BOX PART START ======-->
 
@@ -316,40 +302,35 @@ $nbCourses = countNbFreeCourses();
                                         <img src="images/course/cu-1.jpg" alt="Course">
                                     </div>
                                     <div class="price">
-                                        <a href="#"><span>Add</span></a>
+
                                     </div>
                                 </div>
                                 <div class="cont">
-                                    <!-- <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <span>(20 Reviws)</span> -->
                                     <span href="#">
                                         <h4><?php echo $FreeCourse['name']; ?>
                                         </h4>
                                     </span>
                                     <div class="course-teacher">
                                         <div class="thum">
-                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
-                                        </div>
-                                        <div class="name">
-                                            <a href="#">
-                                                <h6>Makrem Abdelia</h6>
+                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a><a
+                                                href="#">
+                                                <h6><?php echo $FreeCourse['userName']; ?></h6>
                                             </a>
                                         </div>
-                                        <div class="admin">
-                                            <ul>
-                                                <li><a href="#"><i
-                                                            class="fa fa-user"></i><span><?php echo $FreeCourse['numberOfStudentsRegistered']; ?></span></a>
-                                                </li>
-                                                <li><a href="#"><i
-                                                            class="fa fa-heart"></i><span><?php echo $FreeCourse['numberOfLikes']; ?></span></a>
-                                                </li>
-                                            </ul>
+                                        <div class="course-teacher">
+                                            <div class="admin">
+                                                <a href="login.html" class="main-btn">Join Course</a>
+                                                <ul>
+                                                    <center>
+                                                        <li><a href="#"><i
+                                                                    class="fa fa-user"></i><span><?php echo $FreeCourse['numberOfStudentsRegistered']; ?></span></a>
+                                                        </li>
+                                                        <li><a href="#"><i
+                                                                    class="fa fa-heart"></i><span><?php echo $FreeCourse['numberOfLikes']; ?></span></a>
+                                                        </li>
+                                                    </center>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -393,15 +374,9 @@ $nbCourses = countNbFreeCourses();
                             </div>
                             <ul>
                                 <li><a href="index.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Courses</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                <li><a href="PaidCourses.php"><i class="fa fa-angle-right"></i>Premuim Courses</a></li>
+                                <li><a href="FreeCourses.php"><i class="fa fa-angle-right"></i>Free Courses</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -411,11 +386,8 @@ $nbCourses = countNbFreeCourses();
                                 <h6>Support</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -430,7 +402,7 @@ $nbCourses = countNbFreeCourses();
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>1140 Rue Amir Abedelkader, Tunis</p>
                                     </div>
                                 </li>
                                 <li>
@@ -446,7 +418,7 @@ $nbCourses = countNbFreeCourses();
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>EduEasyinfo@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -461,7 +433,7 @@ $nbCourses = countNbFreeCourses();
                 <div class="row">
                     <div class="col-md-8">
                         <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p>
+                            <!-- <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p> -->
                         </div>
                     </div>
                     <div class="col-md-4">

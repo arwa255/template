@@ -7,7 +7,7 @@ function getPaidCourses(){
 
     try {
         $query = $db->query(
-        "SELECT * FROM courses where free=0"
+        "SELECT courses.id, courses.name, courses.category, courses.teacher, courses.teacher_image, courses.image, courses.numberOfStudentsRegistered, courses.numberOfLikes,teacher.userName FROM courses,teacher WHERE courses.free=0 and teacher.userId=courses.teacher"
         );
         return $query;
 
@@ -30,6 +30,25 @@ function countNbPaidCourses(){
         $e->getMessage();
     }
     return $nbCourses;
+}
+
+
+function checkParticipation($userId,$courseId){
+
+    $db = config::getConnexion();
+    
+    $Query = "SELECT count(*) AS nb FROM followcourse where userId='$userId' and courseId='$courseId'";
+    
+    try {
+        $res = $db->query($Query);
+        $data = $res->fetch();
+        $nb = $data['nb'];
+        return $nb;
+            
+    } catch (PDOException $e) {
+            $e->getMessage();
+    }
+    
 }
 
 session_start();
@@ -142,7 +161,7 @@ $nbCourses = countNbPaidCourses();
                                     <li class="nav-item">
                                         <a href="#" style="font-size: 1.5rem;">Courses</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">Premium Courses</a></li>
+                                            <li><a href="ShowPaidCourses.php">Premium Courses</a></li>
                                             <li><a href="ShowFreeCourses.php">Free Courses</a></li>
                                         </ul>
                                     </li>
@@ -177,7 +196,7 @@ $nbCourses = countNbPaidCourses();
                                                 style="border: solid 1px black; padding: 2rem; border-radius: 50%; margin-left: 1em; background-color: whitesmoke;" /></a>
                                         <ul class="sub-menu">
                                             <li><a href="studentMyProfile.php">My Profile</a></li>
-                                            <li><a href="#">My Courses</a></li>
+                                            <li><a href="StudentRegisteredCourses.php">My Courses</a></li>
                                             <li><a href="../Controller/logoutControl.php">Sign out</a></li>
                                         </ul>
                                     </li>
@@ -279,40 +298,37 @@ $nbCourses = countNbPaidCourses();
                                         <img src="images/course/cu-1.jpg" alt="Course">
                                     </div>
                                     <div class="price">
-                                        <a href="#"><span>Add</span></a>
+                                        <!-- <a href="#"><span>Add</span></a> -->
                                     </div>
                                 </div>
                                 <div class="cont">
-                                    <!-- <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <span>(20 Reviws)</span> -->
+
                                     <span href="#">
                                         <h4><?php echo $PaidCourse['name']; ?>
                                         </h4>
                                     </span>
                                     <div class="course-teacher">
                                         <div class="thum">
-                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
-                                        </div>
-                                        <div class="name">
-                                            <a href="#">
-                                                <h6>Makrem Abdelia</h6>
+                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a><a
+                                                href="#">
+                                                <h6><?php echo $PaidCourse['userName']; ?></h6>
                                             </a>
                                         </div>
-                                        <div class="admin">
-                                            <ul>
-                                                <li><a href="#"><i
-                                                            class="fa fa-user"></i><span><?php echo $PaidCourse['numberOfStudentsRegistered']; ?></span></a>
-                                                </li>
-                                                <li><a href="#"><i
-                                                            class="fa fa-heart"></i><span><?php echo $PaidCourse['numberOfLikes']; ?></span></a>
-                                                </li>
-                                            </ul>
+                                        <div class="course-teacher">
+                                            <div class="admin">
+                                                <a href="../Controller/studentActOnCourses.php?courseNum=<?php echo $PaidCourse['id']?>&action=<?php if(checkParticipation($_SESSION['userId'],$FreeCourse['id'])>0)echo "Drop"; /*else echo "Buy";*/ ?> "
+                                                    class="main-btn"><?php if(checkParticipation($_SESSION['userId'],$PaidCourse['id'])>0)echo "Drop Course"; else echo "Buy Course"; ?></a>
+                                                <ul>
+                                                    <center>
+                                                        <li><a href="#"><i
+                                                                    class="fa fa-user"></i><span><?php echo $PaidCourse['numberOfStudentsRegistered']; ?></span></a>
+                                                        </li>
+                                                        <li><a href="#"><i
+                                                                    class="fa fa-heart"></i><span><?php echo $PaidCourse['numberOfLikes']; ?></span></a>
+                                                        </li>
+                                                    </center>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -356,15 +372,9 @@ $nbCourses = countNbPaidCourses();
                             </div>
                             <ul>
                                 <li><a href="index.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Courses</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                <li><a href="PaidCourses.php"><i class="fa fa-angle-right"></i>Premuim Courses</a></li>
+                                <li><a href="FreeCourses.php"><i class="fa fa-angle-right"></i>Free Courses</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -374,11 +384,8 @@ $nbCourses = countNbPaidCourses();
                                 <h6>Support</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -393,7 +400,7 @@ $nbCourses = countNbPaidCourses();
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>1140 Rue Amir Abedelkader, Tunis</p>
                                     </div>
                                 </li>
                                 <li>
@@ -409,7 +416,7 @@ $nbCourses = countNbPaidCourses();
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>EduEasyinfo@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -424,7 +431,7 @@ $nbCourses = countNbPaidCourses();
                 <div class="row">
                     <div class="col-md-8">
                         <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p>
+                            <!-- <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p> -->
                         </div>
                     </div>
                     <div class="col-md-4">
