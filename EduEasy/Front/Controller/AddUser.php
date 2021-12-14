@@ -1,7 +1,7 @@
 <?php
 
-include_once '../Controller\UserC.php';
-include_once '../Model\User.php';
+include_once '../Controller/UserC.php';
+include_once '../Model/User.php';
 
 
 function checkEmailExistence($email){
@@ -65,8 +65,6 @@ function checkUserNameExistence($userName){
 
 
 
-
-
 if(checkEmailExistence($_POST['email'])==false && checkUserNameExistence($_POST['userName'])==false){
 
 
@@ -90,6 +88,7 @@ if($_POST['userType']=='Student'){
     //sending the registration email
     if(mail($emailAdresse,'Welcome to EduEasy',$registrationMessage,"From:miguelonana1234@gmail.com")==true){
         $control->addStudent($newStudent);
+        notifyAdministrator('registration',$_POST['userName'],$newStudent->getUserId(),'student');
         header("location:../View/login.html");
     }
     
@@ -116,6 +115,7 @@ else if($_POST['userType']=='Teacher'){
     //sending the registration email
     if(mail($emailAdresse,'Welcome to EduEasy',$registrationMessage,"From:miguelonana1234@gmail.com")==true){
         $control->addTeacher($newTeacher);
+        notifyAdministrator('registration',$_POST['userName'],$newTeacher->getUserId(),'teacher');
         header("location:../View/login.html");
     }
 }

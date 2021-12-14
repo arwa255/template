@@ -1,19 +1,17 @@
 <?php
-    include('config.php');
-    include_once('Model/chapter.php');
+    include('../../config.php');
+    include_once('../../Model/chapter.php');
+	include_once('../../Views/pages/chapter.php');
 
     class chapterC{
-        function afficherchapter()
+        function afficherchapter($id)
         {
-            $sql = "SELECT * FROM chapter";
-            $db = config::getConnexion();
-            try{
-				$list = $db->query($sql);
-				return $list;
-			}
-			catch(Exception $e){
-				die('Error:'. $e->getMessage());
-			}
+			
+            $sql = 'SELECT * FROM chapter WHERE course_id=:id';
+            $db = config::getConnexion()->prepare($sql);
+            $list=$db->execute([':id' => $id]);
+			
+
         }
 
 		
@@ -32,9 +30,9 @@
 			}
         }
 
-        function ajouterchapter($course)
+        function ajouterchapter($chapter)
         {
-			$sql="INSERT INTO courses (nom, image, category) 
+			$sql="INSERT INTO chapter (nom, image, category) 
 			VALUES (:nom,:image,:category)";
 			$db = config::getConnexion();
 			try{
@@ -74,7 +72,7 @@
 						nom= :nom, 
 						image= :image, 
 						category= :category, 
-						
+					
 					WHERE id=$id"
 				);
 				$query->execute([

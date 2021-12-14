@@ -2,7 +2,7 @@
 
 include_once "../Controller/UserC.php";
 include_once "../Model/User.php";
-include_once "../Controller/loginControl.php";
+//include_once "../Controller/loginControl.php";
 
 session_start();
 $userId = $_SESSION['userId'];
@@ -14,6 +14,7 @@ $searchADM = "ADM";
 //=============== DELETING STUDENT PART STARTS ================================
 if(preg_match("/{$searchSTU}/i", $userId)){
     $control = new StudentC();
+    notifyAdministrator('delatedAccount',$_SESSION['userName'],$_SESSION['userId'],'student');
     $control->deleteStudent($userId);
     $_SESSION['loggedIn']=false;
     $_SESSION['userId']="";
@@ -30,6 +31,7 @@ if(preg_match("/{$searchSTU}/i", $userId)){
 //================= DELETING TEACHER PART STARTS ============================
 else if(preg_match("/{$searchTEA}/i", $userId)){
     $control = new TeacherC();
+    notifyAdministrator('delatedAccount',$_SESSION['userName'],$_SESSION['userId'],'teacher');
     $control->deleteTeacher($userId);
     $_SESSION['loggedIn']=false;
     $_SESSION['userId']="";

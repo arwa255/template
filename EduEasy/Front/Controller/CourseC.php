@@ -1,6 +1,7 @@
 <?php
-    include('config.php');
-    include_once('Model/Course.php');
+    include_once('../config.php');
+    include_once('../Model/Course.php');
+	include_once('../Model/chapter.php');
 
     class CourseC{
         function afficherCourses()
@@ -57,13 +58,13 @@
 
         function ajouterCourse($course)
         {
-			$sql="INSERT INTO courses (nom, image, category, teacher, teacher_image, free) 
-			VALUES (:nom,:image,:category, :teacher, :teacher_image, :free)";
+			$sql="INSERT INTO courses (name, image, category, teacher, teacher_image, free) 
+			VALUES (:name,:image,:category, :teacher, :teacher_image, :free)";
 			$db = config::getConnexion();
 			try{
 				$query = $db->prepare($sql);
 				$query->execute([
-					'nom' => $course->getNom(),
+					'name' => $course->getNom(),
 					'image' => $course->getImage(),
 					'category' => $course->getCategory(),
 					'teacher' => $course->getTeacher(),
@@ -96,7 +97,7 @@
 				$db = config::getConnexion();
 				$query = $db->prepare(
 					"UPDATE courses SET 
-						nom= :nom, 
+						name= :name, 
 						image= :image, 
 						category= :category, 
 						teacher= :teacher,
@@ -105,7 +106,7 @@
 					WHERE id=$id"
 				);
 				$query->execute([
-					'nom' => $course->getNom(),
+					'name' => $course->getNom(),
 					'image' => $course->getImage(),
 					'category' => $course->getCategory(),
 					'teacher' => $course->getTeacher(),
@@ -117,6 +118,84 @@
 				$e->getMessage();
 			}
 		}
+		function afficherchapter()
+        {
+            $sql = "SELECT * FROM chapter";
+            $db = config::getConnexion();
+            try{
+				$list = $db->query($sql);
+				return $list;
+			}
+			catch(Exception $e){
+				die('Error:'. $e->getMessage());
+			}
+        }
+  function supprimerchapter($id)
+        {
+            $sql="DELETE FROM chapter WHERE id=:id";
+			$db = config::getConnexion();
+			$req=$db->prepare($sql);
+			$req->bindValue(':id', $id);
+			try{
+				$req->execute();
+			}
+			catch(Exception $e){
+				die('Error:'. $e->getMessage());
+			}
+        }
+
+        function ajouterchapter($chapter)
+        {
+			$sql="INSERT INTO `chapter` VALUES (:id,:name,:category)";
+			$db = config::getConnexion();
+			try{
+				$query = $db->prepare($sql);
+				$query->execute([
+					'id' => $chapter->getId(),
+					'name' => $chapter->getNom(),
+					
+					'category' => $chapter->getCategory(),
+					
+				]);			
+        }
+        catch (Exception $e){
+            echo 'Error: '.$e->getMessage();
+        }	
+        }
+
+        function getchapter($id){
+			$sql="SELECT * from chapter where id=$id";
+			$db = config::getConnexion();
+			try{
+				$query=$db->prepare($sql);
+				$query->execute();
+
+				$adherent=$query->fetch();
+				return $adherent;
+			}
+			catch (Exception $e){
+				die('Erreur: '.$e->getMessage());
+			}
+		}
+
+     
+		function updatechapter($ser)
+{
+$sqlc= "UPDATE `chapter` SET name=:nam,category=:cat WHERE id=:ide  ";
+$db=config::getConnexion();
+try{ $recipesStatement = $db->prepare($sqlc);
+	$recipesStatement->execute(['nam' =>$ser->getNom(),
+		              'cat' =>$ser->getCategory(),
+		               'ide'=>$ser->getId(),
+		         ]);
+}
+ catch(Exception $e){ 
+ 	
+			 die("erreur:".$e->getMessage());
+}
+
+} 
+
     }
 
 
